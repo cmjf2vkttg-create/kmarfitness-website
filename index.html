@@ -168,11 +168,17 @@
       border: 1.5px solid rgba(42,40,38,0.35);
     }
     .btn-outline:hover {
-      background: var(--charcoal);
-      color: var(--white);
-      border-color: var(--charcoal);
-      transform: translateY(-2px);
-    }
+  background: var(--charcoal);
+  color: var(--white);
+  border-color: var(--charcoal);
+  transform: translateY(-2px);
+}
+
+.social-buttons {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
     .btn-white {
       background: var(--white);
       color: var(--charcoal);
@@ -3107,15 +3113,29 @@
           <div class="ig-overlay">📷</div>
         </div>
       </div>
-      <div class="ig-follow">
-        <p class="ig-handle">Follow <strong>@kmarfitness_</strong> for daily tips, motivation and client wins</p>
-        <a href="https://www.instagram.com/kmarfitness_/"
-   target="_blank"
-   rel="noopener"
-   class="btn btn-outline">
-   Follow on Instagram
-</a>
-      </div>
+      <<div class="ig-follow">
+  <p class="ig-handle">
+    Follow <strong>@kmarfitness_</strong> for daily tips, motivation and client wins
+  </p>
+
+  <div class="social-buttons">
+
+    <a href="https://www.instagram.com/kmarfitnesss_/"
+       target="_blank"
+       rel="noopener"
+       class="btn btn-outline">
+       Follow on Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@YOURUSERNAME"
+       target="_blank"
+       rel="noopener"
+       class="btn btn-outline">
+       Follow on TikTok
+    </a>
+
+  </div>
+</div>
     </div>
   </section>
 
