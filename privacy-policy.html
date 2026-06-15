@@ -219,6 +219,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .creds-bar{grid-template-columns:1fr 1fr;}
     }
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+  
+    /* ===== LEGAL PAGES — premium layout (matches site beige/gold) ===== */
+    .legal-header{padding:150px 0 60px;background:linear-gradient(180deg,var(--cream-mid) 0%,var(--cream) 100%);position:relative;overflow:hidden;}
+    .legal-header::before{content:'';position:absolute;top:-18%;right:-8%;width:46vw;height:46vw;background:radial-gradient(circle,var(--beige-light) 0%,transparent 66%);border-radius:50%;pointer-events:none;}
+    .legal-header .container{position:relative;z-index:1;max-width:840px;}
+    .legal-header h1{margin-bottom:16px;}
+    .legal-lead{font-size:1.06rem;color:var(--muted);max-width:640px;line-height:1.8;}
+    .legal-section{padding:60px 0 96px;background:var(--cream);}
+    .legal-inner{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:20px;}
+    .legal-card{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);box-shadow:var(--shadow-xs);padding:34px 38px;transition:var(--trans);}
+    .legal-card:hover{box-shadow:var(--shadow-sm);border-color:var(--gold-light);}
+    .legal-card h2{font-size:clamp(1.22rem,2.3vw,1.55rem);font-weight:600;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-light);position:relative;}
+    .legal-card h2::after{content:'';position:absolute;bottom:-1px;left:0;width:46px;height:2px;background:var(--gold);}
+    .legal-card h3{font-size:1rem;font-weight:600;color:var(--charcoal);margin:22px 0 8px;}
+    .legal-card p{color:var(--charcoal-mid);line-height:1.85;margin-bottom:14px;}
+    .legal-card p:last-child{margin-bottom:0;}
+    .legal-card ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin:8px 0 6px;}
+    .legal-card li{position:relative;padding-left:22px;color:var(--charcoal-mid);line-height:1.7;}
+    .legal-card li::before{content:'';position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
+    .legal-card a{color:var(--gold-hover);font-weight:600;}
+    .legal-card a:hover{text-decoration:underline;}
+    .legal-card--accent{background:linear-gradient(135deg,var(--gold-pale) 0%,var(--cream-mid) 100%);border-color:var(--gold-light);}
+    @media(max-width:768px){
+      .legal-header{padding:118px 0 46px;}
+      .legal-section{padding:42px 0 64px;}
+      .legal-inner{gap:16px;}
+      .legal-card{padding:26px 24px;}
+    }
+    @media(max-width:540px){.legal-card{padding:24px 20px;}}
+
   </style>
 </head>
 <body>
@@ -255,23 +285,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="mobile-sticky-cta"><a href="index.html#contact" class="btn btn-gold">Book a Free Discovery Call</a></div>
 
   <main>
-<section class="page-header">
+<section class="legal-header">
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p>How Kmar Fitness collects, uses and protects your personal information.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Privacy Policy</span></div>
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="legal-lead">How Kmar Fitness collects, uses and protects your personal information.</p>
     </div>
 </section>
-<section class="section">
+<section class="legal-section">
     <div class="container">
-    <h2>Who We Are</h2>
+      <div class="legal-inner">
+        <div class="legal-card">
+          <h2>Who We Are</h2>
 
     <p>
         Kmar Fitness provides personal training, online coaching and sports massage services.
         We are committed to protecting your privacy and handling your personal information
         responsibly and in accordance with UK data protection legislation.
     </p>
-
-    <h2>Information We Collect</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Information We Collect</h2>
 
     <p>We may collect the following information:</p>
 
@@ -283,8 +318,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <li>Health and fitness information voluntarily provided by you</li>
         <li>Website usage information collected through Google Analytics</li>
     </ul>
-
-    <h2>How We Use Your Information</h2>
+        </div>
+        <div class="legal-card">
+          <h2>How We Use Your Information</h2>
 
     <p>Your information may be used to:</p>
 
@@ -295,44 +331,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <li>Improve our website and services</li>
         <li>Communicate with you regarding your coaching programme</li>
     </ul>
-
-    <h2>Google Analytics</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Google Analytics</h2>
 
     <p>
         We use Google Analytics 4 to help understand how visitors interact with our website.
         Analytics cookies are only activated once consent has been provided through our cookie banner.
     </p>
-
-    <h2>Cookies and Tracking Technologies</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Cookies and Tracking Technologies</h2>
 
     <p>
         We use Silktide Consent Manager and Google Consent Mode v2 to manage cookie preferences.
         Analytics and marketing technologies only collect data after consent has been given.
     </p>
-
-    <h2>Data Security</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Data Security</h2>
 
     <p>
         We take reasonable steps to protect personal information from unauthorised access,
         disclosure, alteration or destruction.
     </p>
-
-    <h2>Your Rights</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Your Rights</h2>
 
     <p>
         You may request access to, correction of, or deletion of your personal information.
         You also have the right to withdraw consent where applicable.
     </p>
-
-    <h2>Contact</h2>
+        </div>
+        <div class="legal-card legal-card--accent">
+          <h2>Contact</h2>
 
     <p>
         For privacy-related enquiries please contact:
         <br><strong><a href="mailto:coach@kmarfitness.co.uk">coach@kmarfitness.co.uk</a></strong>
     </p>
-
-</div>
-    </section>
+        </div>
+      </div>
+    </div>
+</section>
 
 
   </main>

@@ -223,6 +223,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .creds-bar{grid-template-columns:1fr 1fr;}
     }
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+  
+    /* ===== LEGAL PAGES — premium layout (matches site beige/gold) ===== */
+    .legal-header{padding:150px 0 60px;background:linear-gradient(180deg,var(--cream-mid) 0%,var(--cream) 100%);position:relative;overflow:hidden;}
+    .legal-header::before{content:'';position:absolute;top:-18%;right:-8%;width:46vw;height:46vw;background:radial-gradient(circle,var(--beige-light) 0%,transparent 66%);border-radius:50%;pointer-events:none;}
+    .legal-header .container{position:relative;z-index:1;max-width:840px;}
+    .legal-header h1{margin-bottom:16px;}
+    .legal-lead{font-size:1.06rem;color:var(--muted);max-width:640px;line-height:1.8;}
+    .legal-section{padding:60px 0 96px;background:var(--cream);}
+    .legal-inner{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:20px;}
+    .legal-card{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);box-shadow:var(--shadow-xs);padding:34px 38px;transition:var(--trans);}
+    .legal-card:hover{box-shadow:var(--shadow-sm);border-color:var(--gold-light);}
+    .legal-card h2{font-size:clamp(1.22rem,2.3vw,1.55rem);font-weight:600;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border-light);position:relative;}
+    .legal-card h2::after{content:'';position:absolute;bottom:-1px;left:0;width:46px;height:2px;background:var(--gold);}
+    .legal-card h3{font-size:1rem;font-weight:600;color:var(--charcoal);margin:22px 0 8px;}
+    .legal-card p{color:var(--charcoal-mid);line-height:1.85;margin-bottom:14px;}
+    .legal-card p:last-child{margin-bottom:0;}
+    .legal-card ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin:8px 0 6px;}
+    .legal-card li{position:relative;padding-left:22px;color:var(--charcoal-mid);line-height:1.7;}
+    .legal-card li::before{content:'';position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
+    .legal-card a{color:var(--gold-hover);font-weight:600;}
+    .legal-card a:hover{text-decoration:underline;}
+    .legal-card--accent{background:linear-gradient(135deg,var(--gold-pale) 0%,var(--cream-mid) 100%);border-color:var(--gold-light);}
+    @media(max-width:768px){
+      .legal-header{padding:118px 0 46px;}
+      .legal-section{padding:42px 0 64px;}
+      .legal-inner{gap:16px;}
+      .legal-card{padding:26px 24px;}
+    }
+    @media(max-width:540px){.legal-card{padding:24px 20px;}}
+
   </style>
 </head>
 <body>
@@ -259,48 +289,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="mobile-sticky-cta"><a href="index.html#contact" class="btn btn-gold">Book a Free Discovery Call</a></div>
 
   <main>
-<section class="page-header">
+<section class="legal-header">
     <div class="container">
-        <h1>Terms &amp; Conditions</h1>
-
-        <p>The terms governing use of the Kmar Fitness website and services.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Terms &amp; Conditions</span></div>
+      <div class="eyebrow">Legal</div>
+      <h1>Terms &amp; Conditions</h1>
+      <p class="legal-lead">The terms governing use of the Kmar Fitness website and services.</p>
     </div>
 </section>
-<section class="section">
-
-<div class="container">
-
-<h2>Website Use</h2>
+<section class="legal-section">
+    <div class="container">
+      <div class="legal-inner">
+        <div class="legal-card">
+          <h2>Website Use</h2>
 
 <p>
 By using the Kmar Fitness website, you agree to these Terms and Conditions.
 If you do not agree, please do not use this website.
 </p>
-
-<h2>Services</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Services</h2>
 
 <p>
 Kmar Fitness provides personal training, online coaching,
 sports massage services and fitness-related information.
 </p>
-
-<h2>Results Disclaimer</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Results Disclaimer</h2>
 
 <p>
 Individual results vary. Kmar Fitness cannot guarantee specific
 weight loss, fitness improvements, body composition changes
 or performance outcomes.
 </p>
-
-<h2>Medical Disclaimer</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Medical Disclaimer</h2>
 
 <p>
 Information provided on this website is for educational purposes only
 and should not be considered medical advice. Always consult a qualified
 healthcare professional before beginning any exercise programme.
 </p>
-
-<h2>Payments</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Payments</h2>
 
 <p>
 Package and session fees are agreed before any service begins. Monthly coaching
@@ -309,8 +344,9 @@ example 3-month or 6-month bundles) are paid in advance. Prices shown on the
 website are starting rates; your final price is confirmed during your free
 discovery call. All fees are in GBP and include any applicable taxes.
 </p>
-
-<h2>Cancellation Policy</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Cancellation Policy</h2>
 
 <p>
 <strong>Monthly coaching packages:</strong> there are no lock-in contracts. You may
@@ -325,8 +361,9 @@ if you need to reschedule or cancel a booked session, please give at least
 <strong>24 hours' notice</strong>. Sessions cancelled with less than 24 hours' notice,
 or missed without notice, may be charged in full, as the time has been reserved for you.
 </p>
-
-<h2>Refund Policy</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Refund Policy</h2>
 
 <p>
 Because coaching and training are personalised services delivered over time,
@@ -342,8 +379,9 @@ including the Consumer Rights Act 2015. If you booked a service online and have 
 yet started it, you may have a 14-day cancellation right; please contact
 coach@kmarfitness.co.uk and this will be honoured where it applies.
 </p>
-
-<h2>Free Discovery Call Disclaimer</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Free Discovery Call Disclaimer</h2>
 
 <p>
 The free 30-minute discovery call is an informal, no-obligation conversation to
@@ -351,8 +389,9 @@ discuss your goals and whether Kmar Fitness is the right fit for you. It does no
 constitute coaching, training instruction, medical advice or a guarantee of any
 particular outcome, and there is no commitment to purchase any service afterwards.
 </p>
-
-<h2>Online Coaching Disclaimer</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Online Coaching Disclaimer</h2>
 
 <p>
 Online coaching and virtual PT sessions are delivered remotely via app, messaging
@@ -363,8 +402,9 @@ to stop immediately if you feel unwell or experience pain, and to seek medical a
 where appropriate. Kmar Fitness is not liable for injury or loss arising from exercises
 performed without in-person supervision.
 </p>
-
-<h2>Sports Massage Disclaimer</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Sports Massage Disclaimer</h2>
 
 <p>
 Sports massage is provided for muscular relaxation, recovery support and general
@@ -375,31 +415,35 @@ If you have a medical concern, please consult a qualified healthcare professiona
 booking. You should not book sports massage if you have a contraindicated condition
 without medical clearance.
 </p>
-
-<h2>Intellectual Property</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Intellectual Property</h2>
 
 <p>
 All content on this website, including text, graphics, branding,
 logos, images and coaching materials, remains the property
 of Kmar Fitness unless otherwise stated.
 </p>
-
-<h2>Limitation of Liability</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Limitation of Liability</h2>
 
 <p>
 Kmar Fitness accepts no liability for any loss, injury or damage
 resulting from use of this website or reliance on information
 provided on this website.
 </p>
-
-<h2>Changes to These Terms</h2>
+        </div>
+        <div class="legal-card">
+          <h2>Changes to These Terms</h2>
 
 <p>
 Kmar Fitness may update these Terms and Conditions at any time.
 Any changes will be published on this page.
 </p>
-
-<h2>Contact</h2>
+        </div>
+        <div class="legal-card legal-card--accent">
+          <h2>Contact</h2>
 
 <p>
 For any questions regarding these Terms and Conditions please contact:
@@ -409,9 +453,9 @@ For any questions regarding these Terms and Conditions please contact:
 <strong><a href="mailto:coach@kmarfitness.co.uk">coach@kmarfitness.co.uk</a></strong>
 
 </p>
-
-</div>
-
+        </div>
+      </div>
+    </div>
 </section>
 
   </main>
