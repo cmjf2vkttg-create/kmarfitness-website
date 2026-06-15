@@ -334,6 +334,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: center;
       border-radius: 50%;
       transition: var(--trans-fast);
+
+      z-index: 9999;
     }
     .mobile-close:hover { background: var(--beige); }
 
@@ -1989,16 +1991,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation">
-    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
-    <a href="#about"        class="mob-link">About</a>
-    <a href="#services"     class="mob-link">Services</a>
-    <a href="#packages"     class="mob-link">Pricing</a>
-    <a href="results.html"  class="mob-link">Results</a>
-    <a href="#testimonials" class="mob-link">Reviews</a>
-    <a href="faqs.html"     class="mob-link">FAQ</a>
-    <a href="#contact" class="btn btn-gold btn-lg">Book a Free Call</a>
-  </div>
+  <div class="mobile-nav" id="mobileNav" role="dialog">
+
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+
+  <a href="about.html" class="mob-link">About</a>
+
+  <a href="services.html" class="mob-link">Services</a>
+
+  <a href="pricing.html" class="mob-link">Pricing</a>
+
+  <a href="results.html" class="mob-link">Results</a>
+
+  <a href="faqs.html" class="mob-link">FAQ</a>
+
+  <a href="index.html#contact" class="btn btn-gold btn-lg">
+    Book a Free Call
+  </a>
+
+</div>
 
   <!-- STICKY MOBILE CTA -->
   <div class="mobile-sticky-cta" aria-hidden="true">
