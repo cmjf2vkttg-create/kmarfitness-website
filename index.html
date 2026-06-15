@@ -3123,7 +3123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="ig-overlay">📷</div>
         </div>
       </div>
-      <<div class="ig-follow">
+      <div class="ig-follow">
   <p class="ig-handle">
     Follow <strong>@kmarfitness_</strong> for daily tips, motivation and client wins
   </p>
@@ -3287,10 +3287,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="footer-logo">kmar<em>fitness</em></span>
           <p class="footer-tagline">kmarfitness — professional personal training, online coaching and sports massage in Lymington and the New Forest. Founded by Kayleigh Aitken-Robinson, Level 3 qualified PT.</p>
           <div class="socials">
-            <a href="#" class="social" aria-label="Instagram">📷</a>
-            <a href="#" class="social" aria-label="Facebook">📘</a>
-            <a href="#" class="social" aria-label="TikTok">🎵</a>
-            <a href="#" class="social" aria-label="YouTube">▶</a>
+            <a href="https://www.instagram.com/kmarfitness_/" target="_blank" rel="noopener noreferrer" class="social" aria-label="Instagram">📷</a>
+            <a href="https://www.facebook.com/kmarfitness" target="_blank" rel="noopener noreferrer" class="social" aria-label="Facebook">📘</a>
+            <a href="https://www.tiktok.com/@kmarfitness" target="_blank" rel="noopener noreferrer" class="social" aria-label="TikTok">🎵</a>
+            <a href="https://www.youtube.com/@kmarfitness" target="_blank" rel="noopener noreferrer" class="social" aria-label="YouTube">▶</a>
           </div>
           <div class="footer-insured">🛡️ &nbsp;Fully insured · DBS checked · Level 3 PT</div>
         </div>
@@ -3319,7 +3319,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <li><a href="#contact">Free Discovery Call</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="#" id="cookie-preferences-link">Cookie Preferences</a></li>
+            <li><a href="cookie-policy.html" id="cookie-preferences-link">Cookie Preferences</a></li>
           </ul>
         </div>
 
@@ -3350,13 +3350,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span>•</span>
     <a href="cookie-policy.html">Cookie Policy</a>
     <span>•</span>
-    <a href="#" id="cookie-preferences-link">Cookie Preferences</a>
+    <a href="cookie-policy.html" id="cookie-preferences-link">Cookie Preferences</a>
 </div>
 
-<p>© 2026 kmarfitness. Lymington, Hampshire, UK.</p>. All rights reserved. Based in Lymington, Hampshire, UK. Kayleigh Aitken-Robinson — Level 3 Personal Trainer, Online Coach &amp; Sports Massage Therapist.</p>
+<p>© 2026 kmarfitness. All rights reserved. Based in Lymington, Hampshire, UK. Kayleigh Aitken-Robinson — Level 3 Personal Trainer, Online Coach &amp; Sports Massage Therapist.</p>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-conditions.html">Terms &amp; Conditions</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
           <a href="cookie-policy.html">Cookie Policy</a>
         </div>
       </div>
@@ -3456,15 +3456,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       });
     });
 
-    // ── Form submission (placeholder) ────────────
+    // ── Form submission ────────────────────────────
     const form = document.querySelector('form');
     if (form) {
-      form.addEventListener('submit', e => {
+      form.addEventListener('submit', async e => {
         e.preventDefault();
         const btn = form.querySelector('.form-submit');
-        btn.textContent = '✓ Enquiry sent — I\'ll be in touch soon!';
-        btn.style.background = '#4A7C59';
+        btn.textContent = 'Sending…';
         btn.disabled = true;
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+          });
+          const data = await res.json();
+          if (data.success) {
+            btn.textContent = '✓ Enquiry sent — I\'ll be in touch soon!';
+            btn.style.background = '#4A7C59';
+            form.reset();
+          } else {
+            btn.textContent = 'Something went wrong — please email coach@kmarfitness.co.uk';
+            btn.style.background = '#c0392b';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Something went wrong — please email coach@kmarfitness.co.uk';
+          btn.style.background = '#c0392b';
+          btn.disabled = false;
+        }
       });
     }
   </script>
