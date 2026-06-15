@@ -78,11 +78,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-links a:not(.btn):hover{color:var(--gold);}
     .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
     .nav-burger span{display:block;width:22px;height:1.5px;background:var(--charcoal);border-radius:2px;transition:var(--trans);}
-    .mobile-nav{display:none;position:fixed;inset:0;background:var(--cream);z-index:890;flex-direction:column;align-items:center;justify-content:center;gap:32px;text-align:center;}
+    .mobile-nav{display:none;position:fixed;inset:0;background:var(--cream);z-index:1000;flex-direction:column;align-items:center;justify-content:center;gap:32px;text-align:center;}
     .mobile-nav.open{display:flex;}
     .mobile-nav a:not(.btn){font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--charcoal);}
     .mobile-nav a:not(.btn):hover{color:var(--gold);}
-    .mobile-close{position:absolute;top:24px;right:26px;font-size:1.5rem;color:var(--charcoal-mid);width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+    .mobile-close{position:absolute;top:24px;right:26px;font-size:1.5rem;color:var(--charcoal-mid);width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;z-index:10;-webkit-tap-highlight-color:transparent;}
     .mobile-close:hover{background:var(--beige);}
     .mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--white);border-top:1px solid var(--border-light);padding:14px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.08);}
     .mobile-sticky-cta .btn{width:100%;justify-content:center;padding:15px;font-size:.95rem;}
@@ -249,6 +249,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     @media(max-width:540px){.legal-card{padding:24px 20px;}}
 
+  
+    /* ===== UNIFIED FOOTER (identical on every page) ===== */
+    footer[role="contentinfo"]{background:var(--charcoal);padding:48px 0 42px;}
+    .site-footer-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;}
+    .site-footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);}
+    .site-footer-logo em{font-style:normal;color:var(--gold);}
+    .site-footer-links{display:flex;justify-content:center;align-items:center;gap:8px 14px;flex-wrap:wrap;}
+    .site-footer-links a{color:rgba(255,255,255,.66);font-size:.85rem;font-weight:500;text-decoration:none;transition:color .25s ease;}
+    .site-footer-links a:hover{color:var(--gold);}
+    .site-footer-links span{color:rgba(255,255,255,.25);font-size:.75rem;}
+    .site-footer-socials{display:flex;gap:14px;justify-content:center;}
+    .site-footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.18);text-decoration:none;font-size:1.05rem;line-height:1;transition:border-color .25s ease,background .25s ease,transform .25s ease;}
+    .site-footer-socials a:hover{border-color:var(--gold);background:rgba(184,147,58,.14);transform:translateY(-2px);}
+    .site-footer-copy{color:rgba(255,255,255,.34);font-size:.78rem;line-height:1.6;max-width:560px;}
+    @media(max-width:768px){footer[role="contentinfo"]{padding:40px 0 36px;}.site-footer-inner{gap:16px;padding:0 20px;}}
+
   </style>
 </head>
 <body>
@@ -379,25 +395,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-bottom-simple">
-        <span class="footer-logo">kmar<em>fitness</em></span>
-        <div class="legal-links">
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <span>•</span>
-    <a href="cookie-policy.html">Cookie Policy</a>
-    <span>•</span>
-    <a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
-
-<div style="display:flex;gap:14px;justify-content:center;margin:14px 0 4px;">
-  <a href="https://www.instagram.com/kmarfitness_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram on kmarfitness" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);text-decoration:none;font-size:1.05rem;">📷</a>
-  <a href="https://www.tiktok.com/@kmarfitness" target="_blank" rel="noopener noreferrer" aria-label="TikTok on kmarfitness" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);text-decoration:none;font-size:1.05rem;">🎵</a>
-</div>
-
-<p>© 2026 kmarfitness. All rights reserved. Lymington, Hampshire, UK.</p>
-        <a href="index.html" style="color:rgba(255,255,255,.4);font-size:.78rem;">← Back to Home</a>
+  <footer role="contentinfo">
+    <div class="site-footer-inner">
+      <span class="site-footer-logo">kmar<em>fitness</em></span>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </nav>
+      <div class="site-footer-socials">
+        <a href="https://www.instagram.com/kmarfitness_/" target="_blank" rel="noopener noreferrer" aria-label="kmarfitness on Instagram">&#128247;</a>
+        <a href="https://www.tiktok.com/@kmarfitness" target="_blank" rel="noopener noreferrer" aria-label="kmarfitness on TikTok">&#127925;</a>
       </div>
+      <p class="site-footer-copy">&copy; 2026 kmarfitness. All rights reserved. Lymington, Hampshire, UK.</p>
     </div>
   </footer>
 

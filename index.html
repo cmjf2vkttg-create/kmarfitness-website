@@ -1963,6 +1963,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 500;
     }
 
+  
+    /* ===== UNIFIED FOOTER (identical on every page) ===== */
+    footer[role="contentinfo"]{background:var(--charcoal);padding:48px 0 42px;}
+    .site-footer-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;}
+    .site-footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);}
+    .site-footer-logo em{font-style:normal;color:var(--gold);}
+    .site-footer-links{display:flex;justify-content:center;align-items:center;gap:8px 14px;flex-wrap:wrap;}
+    .site-footer-links a{color:rgba(255,255,255,.66);font-size:.85rem;font-weight:500;text-decoration:none;transition:color .25s ease;}
+    .site-footer-links a:hover{color:var(--gold);}
+    .site-footer-links span{color:rgba(255,255,255,.25);font-size:.75rem;}
+    .site-footer-socials{display:flex;gap:14px;justify-content:center;}
+    .site-footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.18);text-decoration:none;font-size:1.05rem;line-height:1;transition:border-color .25s ease,background .25s ease,transform .25s ease;}
+    .site-footer-socials a:hover{border-color:var(--gold);background:rgba(184,147,58,.14);transform:translateY(-2px);}
+    .site-footer-copy{color:rgba(255,255,255,.34);font-size:.78rem;line-height:1.6;max-width:560px;}
+    @media(max-width:768px){footer[role="contentinfo"]{padding:40px 0 36px;}.site-footer-inner{gap:16px;padding:0 20px;}}
+
   </style>
 </head>
 <body>
@@ -3242,79 +3258,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        FOOTER
   ══════════════════════════════════════ -->
   <footer role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-
-        <!-- Brand -->
-        <div>
-          <span class="footer-logo">kmar<em>fitness</em></span>
-          <p class="footer-tagline">kmarfitness — professional personal training, online coaching and sports massage in Lymington and the New Forest. Founded by Kayleigh Aitken-Robinson, Level 3 qualified PT.</p>
-          <div class="socials">
-            <a href="https://www.instagram.com/kmarfitness_/" target="_blank" rel="noopener noreferrer" class="social" aria-label="Instagram">📷</a>
-            <a href="https://www.tiktok.com/@kmarfitness" target="_blank" rel="noopener noreferrer" class="social" aria-label="TikTok">🎵</a>
-          </div>
-          <div class="footer-insured">🛡️ &nbsp;Fully insured · DBS checked · Level 3 PT</div>
-        </div>
-
-        <!-- Services -->
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul class="footer-links">
-            <li><a href="#services">Online Coaching</a></li>
-            <li><a href="#services">Virtual PT Sessions</a></li>
-            <li><a href="#services">1-to-1 Training</a></li>
-            <li><a href="#services">Sports Massage</a></li>
-            <li><a href="#services">Youth Coaching</a></li>
-            <li><a href="#services">Mindset Support</a></li>
-          </ul>
-        </div>
-
-        <!-- Info -->
-        <div class="footer-col">
-          <h5>Information</h5>
-          <ul class="footer-links">
-            <li><a href="#about">About Kayleigh</a></li>
-            <li><a href="#packages">Pricing &amp; Packages</a></li>
-            <li><a href="#testimonials">Client Reviews</a></li>
-            <li><a href="#faq">FAQs</a></li>
-            <li><a href="#contact">Free Discovery Call</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <div class="footer-contact">
-            <div class="fc-item">
-              <span class="fc-icon">📧</span>
-              <span class="fc-text"><a href="mailto:coach@kmarfitness.co.uk">coach@kmarfitness.co.uk</a></span>
-            </div>
-            <div class="fc-item">
-              <span class="fc-icon">📍</span>
-              <span class="fc-text">Based in <strong style="color:rgba(255,255,255,0.7)">Lymington, Hampshire</strong> · In-person &amp; online<br>UK-wide &amp; international coaching</span>
-            </div>
-            <div class="fc-item">
-              <span class="fc-icon">⏰</span>
-              <span class="fc-text">Mon–Sat · Evenings available<br>Flexible to suit your schedule</span>
-            </div>
-          </div>
-        </div>
-
+    <div class="site-footer-inner">
+      <span class="site-footer-logo">kmar<em>fitness</em></span>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </nav>
+      <div class="site-footer-socials">
+        <a href="https://www.instagram.com/kmarfitness_/" target="_blank" rel="noopener noreferrer" aria-label="kmarfitness on Instagram">&#128247;</a>
+        <a href="https://www.tiktok.com/@kmarfitness" target="_blank" rel="noopener noreferrer" aria-label="kmarfitness on TikTok">&#127925;</a>
       </div>
-
-      <div class="footer-bottom">
-        <div class="legal-links">
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <span>•</span>
-    <a href="cookie-policy.html">Cookie Policy</a>
-    <span>•</span>
-    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-</div>
-
-<p>© 2026 kmarfitness. All rights reserved. Based in Lymington, Hampshire, UK. Kayleigh Aitken-Robinson — Level 3 Personal Trainer, Online Coach &amp; Sports Massage Therapist.</p>
-      </div>
+      <p class="site-footer-copy">&copy; 2026 kmarfitness. All rights reserved. Lymington, Hampshire, UK.</p>
     </div>
   </footer>
 
