@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Client Agreement — Online Coaching & Massage Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --teal: #1a7a8a;
+    --teal-light: #e8f5f7;
+    --teal-mid: #2a9aad;
+    --dark: #1c2b2d;
+    --mid: #4a5f62;
+    --soft: #8fa8ac;
+    --bg: #f7fafa;
+    --white: #ffffff;
+    --border: #d0e4e7;
+    --accent: #e8f5f7;
+    --radius: 12px;
+    --shadow: 0 2px 16px rgba(26,122,138,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ── PROGRESS BAR ── */
+  #progress-bar-wrap {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 5px; background: var(--border);
+  }
+  #progress-bar {
+    height: 100%; background: var(--teal-mid);
+    transition: width 0.4s ease; width: 0%;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--teal);
+    color: white;
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  header p { font-size: 0.82rem; opacity: 0.75; margin-top: 4px; }
+  .step-counter {
+    font-size: 0.78rem;
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 6px 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ── TAB NAV ── */
+  #tab-nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 32px;
+    gap: 2px;
+    position: sticky;
+    top: 5px;
+    z-index: 90;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  #tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    border: none; background: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--soft);
+    padding: 14px 16px 12px;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { color: var(--teal); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+  .tab-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--border); flex-shrink: 0;
+    transition: background 0.3s;
+  }
+  .tab-btn.done .tab-dot { background: var(--teal); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 36px 24px 80px;
+  }
+
+  .section-panel { display: none; }
+  .section-panel.active { display: block; animation: fadeIn 0.25s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--teal);
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+  .section-sub {
+    font-size: 0.84rem;
+    color: var(--soft);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  /* ── CARDS ── */
+  .field-group {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+  }
+  .group-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .field-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--soft);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .field-row.three { grid-template-columns: 1fr 1fr 1fr; }
+  .field-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--border);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    padding: 8px 0 6px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-input:focus { border-bottom-color: var(--teal); }
+  .field-input::placeholder { color: var(--soft); font-size: 0.88rem; }
+
+  /* ── CLAUSE BOXES ── */
+  .clause-box {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    font-size: 0.87rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .clause-box strong { color: var(--dark); font-weight: 600; }
+  .clause-box ul {
+    margin: 8px 0 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .clause-box ul li {
+    padding: 3px 0 3px 18px;
+    position: relative;
+  }
+  .clause-box ul li::before {
+    content: "•";
+    color: var(--teal);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  .info-box {
+    background: var(--accent);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .info-box strong { color: var(--dark); }
+
+  /* ── CHECKBOXES ── */
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+  }
+  .checkbox-grid.two-col { grid-template-columns: 1fr 1fr; }
+
+  .cb-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    background: var(--white);
+    transition: border-color 0.18s, background 0.18s, transform 0.1s;
+    user-select: none;
+    font-size: 0.88rem;
+    color: var(--mid);
+  }
+  .cb-item:hover { border-color: var(--teal-mid); background: var(--accent); transform: translateY(-1px); }
+  .cb-item.checked { border-color: var(--teal); background: var(--accent); color: var(--teal); font-weight: 500; }
+  .cb-box {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--border);
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .cb-item.checked .cb-box { border-color: var(--teal); background: var(--teal); }
+  .cb-box svg { display: none; }
+  .cb-item.checked .cb-box svg { display: block; }
+  .cb-item.radio .cb-box { border-radius: 50%; }
+
+  /* ── CONSENT LIST ── */
+  .consent-list { display: flex; flex-direction: column; gap: 10px; }
+  .consent-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    user-select: none;
+  }
+  .consent-item:hover { border-color: var(--teal-mid); background: var(--accent); }
+  .consent-item.checked { border-color: var(--teal); background: var(--accent); }
+  .consent-item .cb-box { margin-top: 2px; flex-shrink: 0; }
+  .consent-text { font-size: 0.88rem; color: var(--mid); line-height: 1.55; }
+  .consent-item.checked .consent-text { color: var(--dark); }
+
+  /* ── SIGNATURE ── */
+  .sig-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.6fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .sig-field label {
+    font-size: 0.75rem;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── PRACTITIONER PANEL ── */
+  .practitioner-panel {
+    background: #f0f4f4;
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+
+  /* ── ATTACHMENT CHECKLIST ── */
+  .checklist-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+    margin-bottom: 8px;
+  }
+  .checklist-item:hover { border-color: var(--teal-mid); background: var(--accent); }
+  .checklist-item.checked { border-color: var(--teal); background: var(--accent); }
+  .checklist-item .cb-box { border-radius: 5px; }
+  .checklist-item .cl-label { font-size: 0.9rem; color: var(--mid); font-weight: 500; }
+  .checklist-item.checked .cl-label { color: var(--teal); }
+
+  /* ── NAV BUTTONS ── */
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 32px; gap: 12px;
+  }
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    padding: 12px 28px; border-radius: 8px;
+    border: none; cursor: pointer;
+    transition: all 0.18s; letter-spacing: 0.02em;
+  }
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: var(--teal-mid); transform: translateY(-1px); }
+  .btn-secondary { background: var(--white); color: var(--mid); border: 1.5px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-print { background: white; color: var(--teal); border: 1.5px solid var(--teal); }
+  .btn-print:hover { background: var(--accent); }
+  .btn-reset { background: none; border: none; color: var(--soft); font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; text-decoration: underline; }
+  .btn-reset:hover { color: var(--dark); }
+
+  /* ── COMPLETE SCREEN ── */
+  #complete-screen {
+    display: none; text-align: center; padding: 60px 24px;
+  }
+  .complete-icon {
+    width: 72px; height: 72px;
+    background: var(--teal); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+  }
+  .complete-icon svg { width: 36px; height: 36px; }
+  #complete-screen h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--teal); font-weight: 400; margin-bottom: 10px;
+  }
+  #complete-screen p { color: var(--soft); font-size: 0.9rem; margin-bottom: 28px; }
+  .complete-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── ERROR BANNER ── */
+  #error-banner {
+    display: none;
+    background: #fdecec;
+    border: 1.5px solid #e0a4a4;
+    border-left: 4px solid #c0392b;
+    color: #7d241b;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  #error-banner strong { color: #7d241b; }
+
+  @media print {
+    #progress-bar-wrap, #tab-nav, header .step-counter, .nav-buttons { display: none !important; }
+    .section-panel { display: block !important; page-break-inside: avoid; }
+    #complete-screen { display: none !important; }
+    body { background: white; }
+    main { padding: 0; max-width: 100%; }
+    .cb-item.checked, .checklist-item.checked, .consent-item.checked { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 20px; }
+    main { padding: 20px 14px 80px; }
+    .field-row, .field-row.three, .sig-row { grid-template-columns: 1fr; }
+    .checkbox-grid.two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+
+<header>
+  <div>
+    <h1>Client Agreement</h1>
+    <p>Online Coaching &amp; Massage Therapy Services — Please read each section carefully</p>
+  </div>
+  <div class="step-counter" id="step-label">Section 1 of 8</div>
+</header>
+
+<nav id="tab-nav"></nav>
+
+<main>
+  <div id="error-banner" role="alert">
+    <strong>⚠ Your agreement could not be sent.</strong> Please check your internet connection and press <strong>Sign &amp; Submit</strong> again. If it keeps failing, email us directly at coach@kmarfitness.co.uk.
+  </div>
+  <div id="form-body"></div>
+  <div id="complete-screen">
+    <div class="complete-icon">
+      <svg fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 id="complete-title">Agreement signed — thank you!</h2>
+    <p id="complete-msg">Sending to your practitioner's inbox — please wait...</p>
+    <div class="complete-actions">
+      <button class="btn btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+      <button class="btn btn-secondary" onclick="resetForm()">Start New Form</button>
+    </div>
+  </div>
+</main>
+
+<script>
+// ─── HELPERS ───────────────────────────────────────────────────────────────
+function cb(items, type = "checkbox", group = null) {
+  return items.map(item => {
+    const g = group ? `data-group="${group}"` : "";
+    return `<div class="cb-item ${type === 'radio' ? 'radio' : ''}" data-type="${type}" ${g} onclick="toggleCb(this)">
+      <div class="cb-box">
+        <svg width="11" height="9" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 11 9"><polyline points="1 4.5 4 7.5 10 1"/></svg>
+      </div>
+      <span>${item}</span>
+    </div>`;
+  }).join("");
+}
+
+function consentItem(text) {
+  return `<div class="consent-item" onclick="toggleConsent(this)">
+    <div class="cb-box">
+      <svg width="11" height="9" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 11 9"><polyline points="1 4.5 4 7.5 10 1"/></svg>
+    </div>
+    <span class="consent-text">${text}</span>
+  </div>`;
+}
+
+function checklistItem(text) {
+  return `<div class="checklist-item" onclick="toggleConsent(this)">
+    <div class="cb-box">
+      <svg width="11" height="9" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 11 9"><polyline points="1 4.5 4 7.5 10 1"/></svg>
+    </div>
+    <span class="cl-label">${text}</span>
+  </div>`;
+}
+
+function clause(title, bullets) {
+  const items = bullets.map(b => `<li>${b}</li>`).join("");
+  return `<div class="clause-box"><strong>${title}</strong><ul>${items}</ul></div>`;
+}
+
+// ─── SECTIONS ──────────────────────────────────────────────────────────────
+const sections = [
+  {
+    id: "business",
+    title: "Business Details",
+    sub: "Practitioner and business information",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Practitioner / Business Information</div>
+        <div class="field-row" style="margin-bottom:18px">
+          <div>
+            <label class="field-label">Business Name</label>
+            <input class="field-input" placeholder="Trading name" data-key="business_name"/>
+          </div>
+          <div>
+            <label class="field-label">Practitioner Name</label>
+            <input class="field-input" placeholder="Full legal name" data-key="practitioner_name"/>
+          </div>
+        </div>
+        <div style="margin-bottom:18px">
+          <label class="field-label">Address</label>
+          <input class="field-input" placeholder="Business address" data-key="business_address"/>
+        </div>
+        <div class="field-row">
+          <div>
+            <label class="field-label">Email</label>
+            <input class="field-input" type="email" placeholder="hello@yourbusiness.com" data-key="business_email"/>
+          </div>
+          <div>
+            <label class="field-label">Phone</label>
+            <input class="field-input" type="tel" placeholder="07..." data-key="business_phone"/>
+          </div>
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Client Information</div>
+        <div class="field-row">
+          <div>
+            <label class="field-label">Client Full Name</label>
+            <input class="field-input" placeholder="First and last name" data-key="client_name"/>
+          </div>
+          <div>
+            <label class="field-label">Date</label>
+            <input class="field-input" type="date" data-key="agreement_date"/>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "services",
+    title: "Services & Health",
+    sub: "What is covered and your health responsibilities",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Services Covered by This Agreement</div>
+        <div class="info-box">The practitioner may provide one or more of the following services. Services not listed here are not included under this agreement.</div>
+        <div class="checkbox-grid">
+          ${cb(["Online Fitness Coaching","Exercise Programming","Lifestyle Coaching","Accountability & Support","Massage Therapy","Mobility & Recovery Guidance"])}
+        </div>
+        <div class="clause-box" style="margin-top:14px">
+          <strong>Not included:</strong> This agreement does not cover medical diagnosis, physiotherapy, psychological counselling, or any other regulated healthcare service unless separately qualified and agreed in writing.
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Health Declaration</div>
+        <div class="consent-list">
+          ${consentItem("I have completed the required health screening questionnaire (PAR-Q).")}
+          ${consentItem("The health information I have provided is accurate and complete.")}
+          ${consentItem("I will inform the Practitioner immediately of any changes to my health status.")}
+          ${consentItem("I understand that participation may involve physical exertion and inherent risks.")}
+        </div>
+        <div class="info-box" style="margin-top:14px">The Practitioner reserves the right to request written medical clearance from a GP before commencing or continuing services.</div>
+      </div>
+    `
+  },
+  {
+    id: "responsibilities",
+    title: "Responsibilities",
+    sub: "What is expected from both parties",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Client Responsibilities</div>
+        <div class="consent-list">
+          ${consentItem("I will follow instructions within my own physical capabilities.")}
+          ${consentItem("I will stop any exercise that causes unusual pain, dizziness, or discomfort and inform the Practitioner.")}
+          ${consentItem("I will communicate honestly about injuries, symptoms, and limitations.")}
+          ${consentItem("I will attend scheduled appointments punctually.")}
+          ${consentItem("I will behave respectfully and professionally at all times.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">No Guarantee of Results</div>
+        <div class="clause-box">
+          The Practitioner cannot and does not guarantee specific outcomes, including:
+          <ul>
+            <li>Weight loss or muscle gain</li>
+            <li>Strength increases or pain reduction</li>
+            <li>Athletic performance improvements</li>
+          </ul>
+          Individual results will vary based on effort, adherence, lifestyle, and individual circumstances.
+        </div>
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I understand that results are not guaranteed and depend on my own effort and circumstances.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Massage Therapy Consent</div>
+        <div class="clause-box">
+          Massage therapy is intended to promote relaxation, recovery, and general wellbeing. It is <strong>not a substitute for medical care</strong>. The Practitioner does not diagnose illness or injury.
+        </div>
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I may withdraw consent or request modification of treatment at any time.")}
+          ${consentItem("I will report any discomfort during treatment immediately.")}
+          ${consentItem("I understand the Practitioner may refuse or discontinue treatment if deemed unsafe.")}
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "fees",
+    title: "Fees & Cancellations",
+    sub: "Payment terms and appointment policies",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Fees &amp; Payment</div>
+        ${clause("Payment Terms", [
+          "Payment is due in advance unless otherwise agreed in writing.",
+          "Sessions, packages, and memberships are non-transferable.",
+          "Outstanding balances must be paid before future services are provided.",
+          "The Practitioner reserves the right to suspend services for non-payment."
+        ])}
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I agree to pay all fees as outlined in my selected service package and understand the payment terms above.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Cancellation &amp; Missed Appointments</div>
+        <div class="info-box">
+          <strong>Coaching &amp; Massage appointments:</strong> Appointments cancelled with less than <strong>24 hours' notice</strong> may be charged in full.<br/><br/>
+          <strong>No-shows:</strong> Failure to attend without notice may result in the full session fee being charged. Exceptions may be made at the Practitioner's discretion in cases of genuine emergency.
+        </div>
+        <div class="consent-list">
+          ${consentItem("I understand that less than 24 hours' notice for cancellations may result in a full charge.")}
+          ${consentItem("I understand that missed appointments without notice may be charged in full.")}
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "liability",
+    title: "Liability & Privacy",
+    sub: "Your rights and how your data is protected",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Liability</div>
+        <div class="clause-box">
+          The Client acknowledges that participation in exercise and massage therapy involves inherent risks including:
+          <ul>
+            <li>Muscle soreness, strains and sprains</li>
+            <li>Falls or accidents</li>
+            <li>Aggravation of existing conditions</li>
+            <li>Other unforeseen injuries</li>
+          </ul>
+          To the fullest extent permitted by law, the Practitioner shall not be liable for any injury, loss, or damage arising from participation in services <strong>except where caused by negligence</strong>. Nothing in this Agreement excludes liability for death or personal injury caused by negligence or fraud.
+        </div>
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I understand and accept the inherent risks associated with exercise and massage therapy.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Confidentiality</div>
+        <div class="clause-box">
+          The Practitioner will treat all Client information as strictly confidential and will only disclose information where:
+          <ul>
+            <li>Required by law</li>
+            <li>Necessary to protect the safety of the Client or others</li>
+            <li>The Client has provided written consent</li>
+          </ul>
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Data Protection &amp; Privacy (UK GDPR)</div>
+        <div class="clause-box">
+          Personal data is processed in accordance with the UK GDPR and Data Protection Act 2018. Information may be collected for:
+          <ul>
+            <li>Service delivery and health screening</li>
+            <li>Appointment management</li>
+            <li>Legal and insurance requirements</li>
+          </ul>
+          You may request access to, correction of, or deletion of your personal data at any time.
+        </div>
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I consent to my personal data being processed as described above in accordance with UK GDPR.")}
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "media",
+    title: "Media & Termination",
+    sub: "Photography consent and ending the agreement",
+    content: `
+      <div class="field-group">
+        <div class="group-title">Photography &amp; Testimonials <span style="font-weight:300;color:var(--soft)">(choose one)</span></div>
+        <div class="info-box">Please select your preference below. You may withdraw this consent at any time in writing.</div>
+        <div class="checkbox-grid two-col">
+          ${cb(["✓  I consent to photographs, videos, testimonials, or progress updates being used for marketing purposes","✗  I do not consent to photographs, videos, or testimonials being used for marketing purposes"],"radio","media_consent")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Termination of Agreement</div>
+        ${clause("Either party may end this agreement by:", [
+          "Providing written notice to the other party.",
+          "Any outstanding fees remain payable upon termination.",
+          "Unused sessions or refunds will be handled in accordance with the Practitioner's refund policy."
+        ])}
+        <div class="consent-list" style="margin-top:12px">
+          ${consentItem("I understand the terms under which this agreement may be terminated.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Governing Law</div>
+        <div class="clause-box">
+          This Agreement is governed by the laws of <strong>England and Wales</strong>. Any disputes shall be subject to the jurisdiction of the courts of England and Wales.
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "declaration",
+    title: "Client Declaration",
+    sub: "Read, confirm, and sign the agreement",
+    content: `
+      <div class="field-group">
+        <div class="group-title" style="margin-bottom:14px">I confirm that:</div>
+        <div class="consent-list">
+          ${consentItem("I have read and understood this Agreement in full.")}
+          ${consentItem("I have had the opportunity to ask questions before signing.")}
+          ${consentItem("I voluntarily agree to participate in coaching and/or massage therapy services.")}
+          ${consentItem("I understand the risks involved and accept responsibility for my participation.")}
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="group-title">Client Signature</div>
+        <div class="sig-row">
+          <div class="sig-field">
+            <label>Full Name</label>
+            <input class="field-input" placeholder="Print full name" data-key="client_sig_name"/>
+          </div>
+          <div class="sig-field">
+            <label>Signature</label>
+            <input class="field-input" placeholder="Type name as signature" data-key="client_sig"/>
+          </div>
+          <div class="sig-field">
+            <label>Date</label>
+            <input class="field-input" type="date" data-key="client_sig_date"/>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: "practitioner",
+    title: "Practitioner Sign-off",
+    sub: "Internal use — practitioner countersignature and checklist",
+    content: `
+      <div class="practitioner-panel">
+        <div class="group-title" style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--soft);margin-bottom:16px">⚕ Internal — Practitioner Only</div>
+        <div class="group-title" style="margin-bottom:10px">Practitioner Countersignature</div>
+        <div class="sig-row" style="margin-bottom:24px">
+          <div class="sig-field">
+            <label>Practitioner Name</label>
+            <input class="field-input" placeholder="Full name" data-key="p_name"/>
+          </div>
+          <div class="sig-field">
+            <label>Signature</label>
+            <input class="field-input" placeholder="Type name" data-key="p_sig"/>
+          </div>
+          <div class="sig-field">
+            <label>Date</label>
+            <input class="field-input" type="date" data-key="p_date"/>
+          </div>
+        </div>
+        <div class="group-title" style="margin-bottom:12px">Attachment Checklist</div>
+        ${checklistItem("PAR-Q & Health Screening Form")}
+        ${checklistItem("Privacy Notice")}
+        ${checklistItem("Client Agreement (this document)")}
+        ${checklistItem("Medical Clearance (if applicable)")}
+      </div>
+    `
+  }
+];
+
+// ─── STATE & INTERACTIONS ──────────────────────────────────────────────────
+let currentSection = 0;
+
+function toggleCb(el) {
+  const type = el.dataset.type;
+  const group = el.dataset.group;
+  if (type === "radio" && group) {
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(s => s.classList.remove("checked"));
+    el.classList.add("checked");
+  } else {
+    el.classList.toggle("checked");
+  }
+  updateProgress();
+}
+
+function toggleConsent(el) {
+  el.classList.toggle("checked");
+  updateProgress();
+}
+
+function goTo(idx) {
+  currentSection = idx;
+  document.querySelectorAll(".section-panel").forEach((p, i) => p.classList.toggle("active", i === idx));
+  document.querySelectorAll(".tab-btn").forEach((t, i) => t.classList.toggle("active", i === idx));
+  document.getElementById("step-label").textContent = `Section ${idx + 1} of ${sections.length}`;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function next() {
+  if (currentSection < sections.length - 1) goTo(currentSection + 1);
+  else submitForm();
+}
+
+function prev() {
+  if (currentSection > 0) goTo(currentSection - 1);
+}
+
+const FORM_ENDPOINT = "https://formspree.io/f/mykqqanq";
+
+function cleanLabel(t) {
+  return (t || "").replace(/\s+/g, " ").trim().replace(/[\s:*]+$/, "");
+}
+
+// Find the human label for a text input / textarea
+function resolveFieldLabel(el) {
+  const prev = el.previousElementSibling;
+  if (prev && prev.tagName === "LABEL") return cleanLabel(prev.textContent);
+  const sig = el.closest(".sig-field");
+  if (sig) { const l = sig.querySelector("label"); if (l) return cleanLabel(l.textContent); }
+  const wrap = el.parentElement;
+  if (wrap) { const l = wrap.querySelector("label, .field-label"); if (l) return cleanLabel(l.textContent); }
+  return cleanLabel(el.getAttribute("placeholder")) || el.dataset.key || "Field";
+}
+
+// Find the question (nearest preceding .group-title) for a checkbox item
+function questionForItem(item) {
+  const box = item.closest(".field-group, .practitioner-panel");
+  if (!box) return "";
+  let best = "";
+  box.querySelectorAll(".group-title").forEach(t => {
+    if (t.compareDocumentPosition(item) & Node.DOCUMENT_POSITION_FOLLOWING) best = cleanLabel(t.textContent);
+  });
+  return best;
+}
+
+// Walk every section in order and build a readable, grouped payload
+function collectSubmission() {
+  const payload = {};
+  function put(section, label, value) {
+    const base = section + " — " + label;
+    let key = base, n = 2;
+    while (key in payload) { key = base + " (" + n + ")"; n++; }
+    payload[key] = value;
+  }
+  document.querySelectorAll(".section-panel").forEach(panel => {
+    const section = cleanLabel(panel.querySelector(".section-title") && panel.querySelector(".section-title").textContent) || "Section";
+
+    // Text / date / tel / email inputs and textareas (incl. signatures + practitioner fields)
+    panel.querySelectorAll("input[data-key], textarea[data-key]").forEach(el => {
+      const v = (el.value || "").trim();
+      if (v) put(section, resolveFieldLabel(el), v);
+    });
+
+    // Checkboxes and radio buttons, grouped by their question
+    const groups = {};
+    panel.querySelectorAll(".cb-item.checked").forEach(item => {
+      const q = questionForItem(item) || "Selection";
+      (groups[q] = groups[q] || []).push(cleanLabel(item.querySelector("span").textContent));
+    });
+    Object.keys(groups).forEach(q => put(section, q, groups[q].join(", ")));
+
+    // Consent tick boxes
+    const consents = [];
+    panel.querySelectorAll(".consent-item.checked .consent-text").forEach(el => consents.push(cleanLabel(el.textContent)));
+    if (consents.length) put(section, "Agreed / Confirmed", consents.map(c => "✓ " + c).join("  |  "));
+
+    // Attachment checklist (practitioner)
+    const checklist = [];
+    panel.querySelectorAll(".checklist-item.checked .cl-label").forEach(el => checklist.push(cleanLabel(el.textContent)));
+    if (checklist.length) put(section, "Attachment Checklist", checklist.map(c => "✓ " + c).join(", "));
+  });
+  return payload;
+}
+
+function showError() {
+  const b = document.getElementById("error-banner");
+  b.style.display = "block";
+  b.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+function clearError() {
+  document.getElementById("error-banner").style.display = "none";
+}
+
+async function submitForm() {
+  const btn = document.querySelector(".section-panel.active .btn-primary");
+  if (btn && btn.dataset.sending === "1") return;   // prevent duplicate submissions
+  clearError();
+  if (btn) { btn.dataset.sending = "1"; btn.disabled = true; btn.textContent = "Sending…"; }
+
+  const payload = collectSubmission();
+  payload._subject = "New Client Agreement — " + (payload["Business Details — Client Full Name"] || "Unnamed client");
+  const emailEl = document.querySelector('input[data-key="business_email"]');
+  if (emailEl && emailEl.value.trim()) payload.email = emailEl.value.trim();
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    // Success
+    document.getElementById("form-body").style.display = "none";
+    document.getElementById("tab-nav").style.display = "none";
+    document.getElementById("complete-screen").style.display = "block";
+    document.getElementById("step-label").textContent = "Complete ✓";
+    document.getElementById("progress-bar").style.width = "100%";
+    document.getElementById("complete-title").textContent = "Agreement signed — thank you!";
+    document.getElementById("complete-msg").textContent = "The signed agreement has been sent to your practitioner's inbox. Save a PDF copy below for your own records.";
+  } catch (err) {
+    // Failure — keep the form visible, re-enable the button, show error
+    if (btn) { btn.dataset.sending = "0"; btn.disabled = false; btn.textContent = "Sign & Submit ✓"; }
+    showError();
+  }
+}
+
+function resetForm() {
+  if (!confirm("Clear all data and start a new agreement?")) return;
+  clearError();
+  document.querySelectorAll(".cb-item, .consent-item, .checklist-item").forEach(el => el.classList.remove("checked"));
+  document.querySelectorAll("input, textarea").forEach(el => el.value = "");
+  document.querySelectorAll(".btn-primary").forEach(b => { b.dataset.sending = "0"; b.disabled = false; });
+  document.getElementById("form-body").style.display = "block";
+  document.getElementById("tab-nav").style.display = "flex";
+  document.getElementById("complete-screen").style.display = "none";
+  goTo(0);
+}
+
+function updateProgress() {
+  const pct = (currentSection / sections.length) * 100;
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.querySelectorAll(".section-panel").forEach((panel, i) => {
+    const tab = document.querySelectorAll(".tab-btn")[i];
+    if (!tab) return;
+    const hasChecked = panel.querySelector(".checked");
+    const hasText = Array.from(panel.querySelectorAll("input, textarea")).some(el => el.value.trim());
+    tab.classList.toggle("done", !!(hasChecked || hasText));
+  });
+}
+
+// ─── BUILD UI ──────────────────────────────────────────────────────────────
+function buildUI() {
+  const tabNav = document.getElementById("tab-nav");
+  const formBody = document.getElementById("form-body");
+
+  sections.forEach((sec, i) => {
+    const btn = document.createElement("button");
+    btn.className = "tab-btn" + (i === 0 ? " active" : "");
+    btn.innerHTML = `<span class="tab-dot"></span>${sec.title}`;
+    btn.onclick = () => goTo(i);
+    tabNav.appendChild(btn);
+
+    const panel = document.createElement("div");
+    panel.className = "section-panel" + (i === 0 ? " active" : "");
+    panel.innerHTML = `
+      <div class="section-title">${sec.title}</div>
+      <div class="section-sub">${sec.sub}</div>
+      ${sec.content}
+      <div class="nav-buttons">
+        ${i > 0
+          ? `<button class="btn btn-secondary" onclick="prev()">← Back</button>`
+          : `<button class="btn-reset" onclick="resetForm()">Reset form</button>`}
+        <button class="btn btn-primary" onclick="next()">${i < sections.length - 1 ? "Continue →" : "Sign & Submit ✓"}</button>
+      </div>
+    `;
+    formBody.appendChild(panel);
+  });
+
+  const today = new Date().toISOString().split("T")[0];
+  document.querySelectorAll('input[type="date"]').forEach(el => { if (!el.value) el.value = today; });
+}
+
+buildUI();
+updateProgress();
+</script>
+</body>
+</html>
